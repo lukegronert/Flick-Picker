@@ -1,3 +1,6 @@
+import 'normalize.css';
+import './sass/app.scss';
+
 function App() {
   return (
     <div>
