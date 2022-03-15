@@ -1,12 +1,14 @@
+import React from 'react'
 import 'normalize.css';
-import './sass/app.scss';
+import 'app.css';
 
-function App() {
+export default function App() {
   return (
-    <div>
-      Flick Picker
+    <div className="container">
+      <header>
+        <h1>Flick Picker</h1>
+      </header>
     </div>
-  );
+  )
 }
 
-export default App;
