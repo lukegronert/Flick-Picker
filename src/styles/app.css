@@ -1,0 +1,27 @@
+:root {
+  --netflix: #e50914;
+  --disney: #006e99;
+  --hulu: #66aa33;
+  --amazon: #ff9900;
+}
+
+.container {
+  max-width: 300px;
+  border: 1px solid black;
+  margin: 20px auto;
+}
+
+.header {
+  width: 100%;
+  text-align: center;
+}
+
+.stream-buttons-section {
+  display: flex;
+  justify-content: space-around;
+}
+
+.generate-button-section {
+  width: 100px;
+  margin: 20px auto;
+}
