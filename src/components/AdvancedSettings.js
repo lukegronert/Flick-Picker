@@ -1,24 +1,34 @@
 import React from 'react'
-import '../styles/advanced-settings.css';
+import '../styles/advancedSettings.css';
 
 export default function AdvancedSettings() {
+    const addAnimation = () => {
+        const settings = document.querySelector('.settings');
+        if(!settings.classList.contains('dropdown-animation')) {
+            settings.classList.remove('raiseup-animation')
+            settings.classList.add('dropdown-animation');
+        } else {
+            settings.classList.remove('dropdown-animation');
+            settings.classList.add('raiseup-animation');
+        }
+    }
 
   return (
     <section className="advanced-settings-container">
-        <div className="advanced-settings-header">
+        <div className="advanced-settings-header" onClick={() => addAnimation()}>
             <p>Advanced Settings</p>
             <p>\/</p>
         </div>
         <section className="settings">
             <div className="settings-option">
-                <label>Movie or Series</label>
+                <label>Movie or Series:</label>
                 <select>
                     <option value="movie">Movie</option>
                     <option value="series">Series</option>
                 </select> 
             </div>
             <div className="settings-option">
-                <label>Genre</label>
+                <label>Genre:</label>
                 <select>
                     <option value="1">Biography</option>
                     <option value="10402">Music</option>
@@ -51,7 +61,7 @@ export default function AdvancedSettings() {
                 </select>
             </div>
             <div className="settings-option">
-                <label>IMDb Rating</label>
+                <label>IMDb Rating:</label>
                 <select>
                     <option value="any">Any</option>
                     <option value="90">90+</option>

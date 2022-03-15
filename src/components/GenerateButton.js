@@ -1,5 +1,5 @@
 import React from 'react';
-import "../styles/generate-button.css";
+import "../styles/generateButton.css";
 
 export default function GenerateButton() {
   return (
