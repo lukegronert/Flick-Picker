@@ -1,0 +1,70 @@
+.advanced-settings-container {
+  width: 95%;
+  margin: 10px auto;
+  border: 1px solid black;
+}
+
+.advanced-settings-header {
+  display: flex;
+  justify-content: space-between;
+  border-bottom: 1px solid black;
+}
+
+
+.advanced-settings-header p {
+  margin: 5px 5px;
+  cursor: pointer;
+}
+
+.advanced-settings-container .settings {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  opacity: 0;
+  height: 0;
+  overflow: hidden;
+}
+
+.dropdown-animation {
+  animation-name: dropdown;
+  animation-duration: 0.3s;
+  animation-fill-mode: forwards;
+}
+
+@keyframes dropdown {
+  from {
+    height: 0;
+    opacity: 0;
+  }
+  to {
+    height: 100px;
+    opacity: 1;
+  }
+}
+
+.raiseup-animation {
+  animation-name: raiseup;
+  animation-duration: 0.3s;
+  animation-fill-mode: forwards;
+}
+
+@keyframes raiseup {
+  from {
+    height: 100px;
+    opacity: 1;
+  }
+  to {
+    height: 0px;
+    opacity: 0;
+  }
+}
+
+.advanced-settings-container .settings .settings-option {
+  display: flex;
+  justify-content: space-between;
+  margin: 5px 10px;
+}
+
+.advanced-settings-container .settings .settings-option select {
+  width: 50%;
+}

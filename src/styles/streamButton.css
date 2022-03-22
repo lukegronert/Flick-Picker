@@ -1,0 +1,102 @@
+.stream-button {
+    border-radius: 15px;
+    border: white 1px solid;
+    font-weight: bold;
+}
+
+.stream-button-netflix {
+    background: var(--netflix);
+    color: white;
+}
+
+.stream-button-netflix:hover {
+    animation-name: netflixButton;
+    animation-duration: 0.3s;
+    animation-fill-mode: forwards;
+}
+
+@keyframes netflixButton {
+    from {
+        background: var(--netflix);
+        color: white;
+        border: white 1px solid;
+    }
+    to {
+        background: white;
+        color: var(--netflix);
+        border: var(--netflix) 1px solid;
+    }
+}
+
+.stream-button-disney {
+    background: var(--disney);
+    color: white;
+    animation-fill-mode: forwards;
+}
+
+.stream-button-disney:hover {
+    animation-name: disneyButton;
+    animation-duration: 0.3s;
+    animation-fill-mode: forwards;
+}
+
+@keyframes disneyButton {
+    from {
+        background: var(--disney);
+        color: white;
+        border: white 1px solid;
+    }
+    to {
+        background: white;
+        color: var(--disney);
+        border: var(--disney) 1px solid;
+    }
+}
+
+.stream-button-hulu {
+    background: var(--hulu);
+    color: white;
+}
+
+.stream-button-hulu:hover {
+    animation-name: huluButton;
+    animation-duration: 0.3s;
+    animation-fill-mode: forwards;
+}
+
+@keyframes huluButton {
+    from {
+        background: var(--hulu);
+        color: white;
+        border: white 1px solid;
+    }
+    to {
+        background: white;
+        color: var(--hulu);
+        border: var(--hulu) 1px solid;
+    }
+}
+
+.stream-button-amazon {
+    background: var(--amazon);
+    color: white;
+}
+
+.stream-button-amazon:hover {
+    animation-name: amazonButton;
+    animation-duration: 0.3s;
+    animation-fill-mode: forwards;
+}
+
+@keyframes amazonButton {
+    from {
+        background: var(--amazon);
+        color: white;
+        border: white 1px solid;
+    }
+    to {
+        background: white;
+        color: var(--amazon);
+        border: var(--amazon) 1px solid;
+    }
+}
