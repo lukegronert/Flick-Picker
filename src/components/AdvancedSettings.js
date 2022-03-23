@@ -1,15 +1,17 @@
 import React from 'react'
 import '../styles/advancedSettings.css';
 
-export default function AdvancedSettings() {
+export default function AdvancedSettings({setAdvancedSettingsActive, setMovieOrSeries, setGenre, setImdbRating}) {
     const addAnimation = () => {
         const settings = document.querySelector('.settings');
         if(!settings.classList.contains('dropdown-animation')) {
             settings.classList.remove('raiseup-animation')
             settings.classList.add('dropdown-animation');
+            setAdvancedSettingsActive(true);
         } else {
             settings.classList.remove('dropdown-animation');
             settings.classList.add('raiseup-animation');
+            setAdvancedSettingsActive(false);
         }
     }
 
@@ -22,14 +24,14 @@ export default function AdvancedSettings() {
         <section className="settings">
             <div className="settings-option">
                 <label>Movie or Series:</label>
-                <select>
+                <select onChange={(e) => setMovieOrSeries(e.target.value)}>
                     <option value="movie">Movie</option>
                     <option value="series">Series</option>
                 </select> 
             </div>
             <div className="settings-option">
                 <label>Genre:</label>
-                <select>
+                <select onChange={(e) => setGenre(e.target.value)}>
                     <option value="1">Biography</option>
                     <option value="10402">Music</option>
                     <option value="10749">Romance</option>
@@ -62,7 +64,7 @@ export default function AdvancedSettings() {
             </div>
             <div className="settings-option">
                 <label>IMDb Rating:</label>
-                <select>
+                <select onChange={(e) => setImdbRating(e.target.value)}>
                     <option value="any">Any</option>
                     <option value="90">90+</option>
                     <option value="80">80+</option>
