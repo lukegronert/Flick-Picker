@@ -1,7 +1,7 @@
 import React from 'react'
 import '../styles/advancedSettings.css';
 
-export default function AdvancedSettings({setAdvancedSettingsActive, setMovieOrSeries, setGenre, setImdbRating}) {
+export default function AdvancedSettings({setAdvancedSettingsActive, setMovieOrSeries, setGenre}) {
     const addAnimation = () => {
         const settings = document.querySelector('.settings');
         if(!settings.classList.contains('dropdown-animation')) {
@@ -32,6 +32,7 @@ export default function AdvancedSettings({setAdvancedSettingsActive, setMovieOrS
             <div className="settings-option">
                 <label>Genre:</label>
                 <select onChange={(e) => setGenre(e.target.value)}>
+                    <option value="0">Any</option>
                     <option value="1">Biography</option>
                     <option value="10402">Music</option>
                     <option value="10749">Romance</option>
@@ -60,18 +61,6 @@ export default function AdvancedSettings({setAdvancedSettingsActive, setMovieOrS
                     <option value="878">Science Fiction</option>
                     <option value="9648">Mystery</option>
                     <option value="99">Documentary</option>
-                </select>
-            </div>
-            <div className="settings-option">
-                <label>IMDb Rating:</label>
-                <select onChange={(e) => setImdbRating(e.target.value)}>
-                    <option value="any">Any</option>
-                    <option value="90">90+</option>
-                    <option value="80">80+</option>
-                    <option value="70">70+</option>
-                    <option value="60">60+</option>
-                    <option value="50">50+</option>
-                    <option value="less than 50">Lower than 50</option>
                 </select>
             </div>
         </section>
