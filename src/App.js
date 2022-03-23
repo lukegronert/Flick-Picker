@@ -8,9 +8,25 @@ import AdvancedSettings from './components/AdvancedSettings';
 
 export default function App() {
   const [advancedSettingsActive, setAdvancedSettingsActive] = useState(false);
+  const [service, setService] = useState('netflix')
   const [movieOrSeries, setMovieOrSeries] = useState('movie');
   const [genre, setGenre] = useState('Biography');
   const [imdbRating, setImdbRating] = useState('Any')
+
+  const pickFlick = (service, movieOrSeries, genre) => {
+    const options = {
+      method: 'GET',
+      headers: {
+        'X-RapidAPI-Host': '',
+        'X-RapidAPI-Key': ''
+      }
+    }
+    fetch('https://streaming-availability.p.rapidapi.com/search/basic?country=us&service=netflix&type=movie&genre=18&page=1&output_language=en&language=en',
+          options)
+          .then(response => response.json())
+	        .then(response => console.log(response))
+          .catch(err => console.log(err))
+  }
 
   return (
     <div className="container">
@@ -20,10 +36,10 @@ export default function App() {
       <section>
         <section className="buttons-section">
           <section className="stream-buttons-section">
-            <StreamButton brand="Netflix"/>
-            <StreamButton brand="Disney"/>
-            <StreamButton brand="Hulu"/>
-            <StreamButton brand="Amazon"/>
+            <StreamButton brand="netflix" setService={setService}/>
+            <StreamButton brand="disney" setService={setService}/>
+            <StreamButton brand="hulu" setService={setService}/>
+            <StreamButton brand="amazon" setService={setService}/>
           </section>
           <section className="generate-button-section">
             <GenerateButton />
