@@ -1,17 +1,15 @@
 import React from 'react'
 import '../styles/advancedSettings.css';
 
-export default function AdvancedSettings({setAdvancedSettingsActive, setMovieOrSeries, setGenre}) {
+export default function AdvancedSettings({setMovieOrSeries, setGenre}) {
     const addAnimation = () => {
         const settings = document.querySelector('.settings');
         if(!settings.classList.contains('dropdown-animation')) {
             settings.classList.remove('raiseup-animation')
             settings.classList.add('dropdown-animation');
-            setAdvancedSettingsActive(true);
         } else {
             settings.classList.remove('dropdown-animation');
             settings.classList.add('raiseup-animation');
-            setAdvancedSettingsActive(false);
         }
     }
 

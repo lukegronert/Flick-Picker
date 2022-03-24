@@ -1,6 +1,7 @@
-import React, {useState} from 'react';
+import React, {useState, useEffect} from 'react';
 import 'normalize.css';
 import './styles/app.css';
+import {Grid} from 'react-loader-spinner';
 
 import StreamButton from './components/StreamButton';
 import GenerateButton from './components/GenerateButton';
@@ -10,12 +11,13 @@ const {REACT_APP_HOST} = process.env;
 const {REACT_APP_KEY} = process.env;
 
 export default function App() {
-  const [advancedSettingsActive, setAdvancedSettingsActive] = useState(false);
-  const [service, setService] = useState('netflix')
+  const [isLoading, setIsLoading] = useState(false);
+  const [service, setService] = useState('netflix');
   const [movieOrSeries, setMovieOrSeries] = useState('movie');
   const [genre, setGenre] = useState('0');
 
   const pickFlick = (service, movieOrSeries, genre) => {
+    setIsLoading(true)
     let randomPage;
     const options = {
       method: 'GET',
@@ -40,7 +42,10 @@ export default function App() {
         .then(() => fetch(`https://streaming-availability.p.rapidapi.com/search/basic?country=us&service=${service}&type=${movieOrSeries}&page=${randomPage}&output_language=en&language=en`,
         options)
               .then(response => response.json())
-              .then(response => console.log(response)))
+              .then(response => {
+                setIsLoading(false)
+                console.log(response)
+              }))
               .catch(err => console.log(err))
     } else {
       fetch(`https://streaming-availability.p.rapidapi.com/search/basic?country=us&service=${service}&type=${movieOrSeries}&genre=${genre}&page=1&output_language=en&language=en`,
@@ -53,32 +58,52 @@ export default function App() {
         .then(() => fetch(`https://streaming-availability.p.rapidapi.com/search/basic?country=us&service=${service}&type=${movieOrSeries}&genre=${genre}&page=${randomPage}&output_language=en&language=en`,
         options)
               .then(response => response.json())
-              .then(response => console.log(response)))
+              .then(response => {
+                setIsLoading(false)
+                console.log(response)
+                }))
               .catch(err => console.log(err))
     }
   }
 
-  return (
-    <div className="container">
-      <header>
-        <h1 className="header">Flick Picker</h1>
-      </header>
-      <section>
+  useEffect(() => {
+    console.log('rerender')
+  }, [isLoading])
+
+  if(isLoading === true) {
+    return(
+      <section className="container">
+        <div className="loader-div">
+          <Grid color="blue" height="100%" width="100%" className="loader-spinner"/>
+        </div>
+      </section>
+    )
+  } else if (isLoading === false) {
+    return (
+      <div className="container">
+        <header>
+          <h1 className="header">Flick Picker</h1>
+        </header>
         <section className="buttons-section">
           <section className="stream-buttons-section">
-            <StreamButton brand="netflix" setService={setService}/>
-            <StreamButton brand="disney" setService={setService}/>
-            <StreamButton brand="hulu" setService={setService}/>
-            <StreamButton brand="amazon" setService={setService}/>
+            <div className="stream-buttons-column">
+              <StreamButton brand="netflix" setService={setService}/>
+              <StreamButton brand="disney" setService={setService}/>
+            </div>
+            <div className="stream-buttons-column">
+              <StreamButton brand="hulu" setService={setService}/>
+              <StreamButton brand="amazon" setService={setService}/>
+            </div>
           </section>
           <section className="generate-button-section">
             <GenerateButton pickFlick={pickFlick} service={service} movieOrSeries={movieOrSeries} genre={genre} />
           </section>
         </section>
-        <AdvancedSettings setAdvancedSettingsActive={setAdvancedSettingsActive} advancedSettingsActive={advancedSettingsActive}
-                          setMovieOrSeries={setMovieOrSeries} setGenre={setGenre} />
-      </section>
-    </div>
-  )
+        <section className="advanced-settings-section">
+          <AdvancedSettings setMovieOrSeries={setMovieOrSeries} setGenre={setGenre} />
+        </section>
+      </div>
+    )
+  }
 }
 
