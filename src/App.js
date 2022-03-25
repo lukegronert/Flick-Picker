@@ -21,17 +21,23 @@ export default function App() {
   const [movieTitle, setMovieTitle] = useState('');
   const [movieImageURL, setMovieImageURL] = useState('');
   const [movieCast, setMovieCast] = useState([]);
-  const [movieImdbRating, setMovieImdbRating] = useState(0);
-  const [movieRuntime, setMovieRuntime] = useState(0);
+  const [movieImdbRating, setMovieImdbRating] = useState(null);
+  const [movieRuntime, setMovieRuntime] = useState(null);
   const [movieOverview, setMovieOverview] = useState('');
+  const [episodeRuntimes, setEpisodeRuntimes] = useState(null);
+  const [seasons, setSeasons] = useState(null)
+  const [episodes, setEpisodes] = useState(null)
 
-  const setMovieState = (title, imageURL, cast, imdbRating, runtime, overview) => {
+  const setMovieState = (title, imageURL, cast, imdbRating, runtime, overview, episodeRuntimes, seasons, episodes) => {
     setMovieTitle(title);
     setMovieImageURL(imageURL);
     setMovieCast(cast);
     setMovieImdbRating(imdbRating);
     setMovieRuntime(runtime);
     setMovieOverview(overview);
+    setEpisodeRuntimes(episodeRuntimes);
+    setSeasons(seasons);
+    setEpisodes(episodes);
   }
 
   const pickFlick = (service, movieOrSeries, genre) => {
@@ -61,26 +67,28 @@ export default function App() {
         options)
               .then(response => response.json())
               .then(response => {
+                console.log(response)
                 let movie = response.results[Math.floor(Math.random() * response.results.length) + 1]
-                setMovieState(movie.title, movie.backdropURLs['300'], movie.cast, movie.imdbRating, movie.runtime, movie.overview)
+                setMovieState(movie.title, movie.backdropURLs['300'], movie.cast, movie.imdbRating, movie.runtime, movie.overview, movie.episodeRuntimes, movie.seasons, movie.episodes)
                 setDisplayMovie(true)
                 setIsLoading(false)
               }))
               .catch(err => console.log(err))
-    } else {
-      fetch(`https://streaming-availability.p.rapidapi.com/search/basic?country=us&service=${service}&type=${movieOrSeries}&genre=${genre}&page=1&output_language=en&language=en`,
-        options)
-        .then(response => response.json())
-        .then(response => {
-          console.log(response.total_pages)
-          randomPage = Math.floor(Math.random() * (response.total_pages) + 1);
-        })
-        .then(() => fetch(`https://streaming-availability.p.rapidapi.com/search/basic?country=us&service=${service}&type=${movieOrSeries}&genre=${genre}&page=${randomPage}&output_language=en&language=en`,
-        options)
+            } else {
+              fetch(`https://streaming-availability.p.rapidapi.com/search/basic?country=us&service=${service}&type=${movieOrSeries}&genre=${genre}&page=1&output_language=en&language=en`,
+              options)
               .then(response => response.json())
               .then(response => {
+                console.log(response.total_pages)
+                randomPage = Math.floor(Math.random() * (response.total_pages) + 1);
+              })
+              .then(() => fetch(`https://streaming-availability.p.rapidapi.com/search/basic?country=us&service=${service}&type=${movieOrSeries}&genre=${genre}&page=${randomPage}&output_language=en&language=en`,
+              options)
+              .then(response => response.json())
+              .then(response => {
+                console.log(response)
                 let movie = response.results[Math.floor(Math.random() * response.results.length) + 1]
-                setMovieState(movie.title, movie.backdropURLs['300'], movie.cast, movie.imdbRating, movie.runtime, movie.overview)
+                setMovieState(movie.title, movie.backdropURLs['300'], movie.cast, movie.imdbRating, movie.runtime, movie.overview, movie.episodeRuntimes, movie.seasons, movie.episodes)
                 setDisplayMovie(true)
                 setIsLoading(false)
                 console.log(response.results)
@@ -105,7 +113,9 @@ export default function App() {
     return (
       <section className="container">
         <MovieCard title={movieTitle} imageURL={movieImageURL} cast={movieCast} imdbRating={movieImdbRating}
-                    runtime={movieRuntime} overview={movieOverview}/>
+                    runtime={movieRuntime} overview={movieOverview} setDisplayMovie={setDisplayMovie} 
+                    movieOrSeries={movieOrSeries} episodeRuntimes={episodeRuntimes} seasons={seasons} episodes={episodes}
+                    />
       </section>
     )
   } else {
