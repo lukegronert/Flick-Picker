@@ -2,4 +2,21 @@
   border-radius: 100%;
   height: 300px;
   width: 300px;
+  color: white;
+  font-size: 30px;
+  border: none;
+  background: rgb(233, 107, 107);
+  background: radial-gradient(
+    circle,
+    rgba(233, 107, 107, 1) 0%,
+    rgba(234, 62, 62, 1) 100%
+  );
+  box-shadow: 9px 10px 14px -4px rgba(0, 0, 0, 0.17);
+  -webkit-box-shadow: 9px 10px 14px -4px rgba(0, 0, 0, 0.17);
+  -moz-box-shadow: 9px 10px 14px -4px rgba(0, 0, 0, 0.17);
+  transition: transform 0.1s ease-in;
+}
+
+.generate-button:hover {
+  transform: scale(1.1);
 }

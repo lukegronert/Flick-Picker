@@ -1,14 +1,22 @@
 .stream-button {
   border-radius: 15px;
-  border: white 1px solid;
+  border: none;
   font-weight: bold;
   width: 90%;
   margin: 10px auto;
   height: 40px;
+  box-shadow: 9px 10px 14px -4px rgba(0, 0, 0, 0.17);
+  -webkit-box-shadow: 9px 10px 14px -4px rgba(0, 0, 0, 0.17);
+  -moz-box-shadow: 9px 10px 14px -4px rgba(0, 0, 0, 0.17);
 }
 
 .stream-button-netflix {
-  background: var(--netflix);
+  background: rgb(229, 9, 20);
+  background: linear-gradient(
+    90deg,
+    rgba(241, 82, 82, 1) 0%,
+    rgba(229, 9, 20, 1) 100%
+  );
   color: white;
 }
 
@@ -32,7 +40,12 @@
 }
 
 .stream-button-disney {
-  background: var(--disney);
+  background: rgb(0, 110, 153);
+  background: linear-gradient(
+    90deg,
+    rgba(0, 167, 252, 1) 0%,
+    rgba(0, 110, 153, 1) 100%
+  );
   color: white;
   animation-fill-mode: forwards;
 }
@@ -57,7 +70,12 @@
 }
 
 .stream-button-hulu {
-  background: var(--hulu);
+  background: rgb(102, 170, 51);
+  background: linear-gradient(
+    90deg,
+    rgba(148, 221, 150, 1) 0%,
+    rgba(102, 170, 51, 1) 100%
+  );
   color: white;
 }
 
@@ -81,7 +99,12 @@
 }
 
 .stream-button-amazon {
-  background: var(--amazon);
+  background: rgb(255, 201, 120);
+  background: linear-gradient(
+    90deg,
+    rgba(255, 201, 120, 1) 0%,
+    rgba(255, 153, 0, 1) 100%
+  );
   color: white;
 }
 

@@ -1,0 +1,39 @@
+.image-details-section {
+  display: flex;
+  justify-content: space-between;
+}
+
+.image-details-section .image {
+  width: 47.5%;
+}
+
+.image-details-section .details {
+  width: 47.5%;
+}
+
+.button-div {
+  width: 100%;
+  text-align: center;
+}
+
+.back-button {
+  width: 100px;
+  height: 50px;
+}
+
+.mobile-overview {
+  display: block;
+}
+
+.desktop-overview {
+  display: none;
+}
+
+@media only screen and (min-width: 401px) {
+  .mobile-overview {
+    display: none;
+  }
+  .desktop-overview {
+    display: block;
+  }
+}

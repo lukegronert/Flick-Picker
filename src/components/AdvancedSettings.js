@@ -19,7 +19,7 @@ export default function AdvancedSettings({setMovieOrSeries, setGenre}) {
             <p>Advanced Settings</p>
             <p>\/</p>
         </div>
-        <section className="settings">
+        <section className="settings dropdown-animation">
             <div className="settings-option">
                 <label>Movie or Series:</label>
                 <select onChange={(e) => setMovieOrSeries(e.target.value)}>

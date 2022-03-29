@@ -19,7 +19,9 @@ export default function App() {
   const [genre, setGenre] = useState('0');
 
   const [movieTitle, setMovieTitle] = useState('');
-  const [movieImageURL, setMovieImageURL] = useState('');
+  const [movieMobileImageURL, setMovieMobileImageURL] = useState('');
+  const [movieMediumImageURL, setMovieMediumImageURL] = useState('');
+  const [movieLargeImageURL, setMovieLargeImageURL] = useState('');
   const [movieCast, setMovieCast] = useState([]);
   const [movieImdbRating, setMovieImdbRating] = useState(null);
   const [movieRuntime, setMovieRuntime] = useState(null);
@@ -28,9 +30,11 @@ export default function App() {
   const [seasons, setSeasons] = useState(null)
   const [episodes, setEpisodes] = useState(null)
 
-  const setMovieState = (title, imageURL, cast, imdbRating, runtime, overview, episodeRuntimes, seasons, episodes) => {
+  const setMovieState = (title, mobileImageURL, mediumImageURL, largeImageURL, cast, imdbRating, runtime, overview, episodeRuntimes, seasons, episodes) => {
     setMovieTitle(title);
-    setMovieImageURL(imageURL);
+    setMovieMobileImageURL(mobileImageURL);
+    setMovieMediumImageURL(mediumImageURL);
+    setMovieLargeImageURL(largeImageURL);
     setMovieCast(cast);
     setMovieImdbRating(imdbRating);
     setMovieRuntime(runtime);
@@ -68,8 +72,8 @@ export default function App() {
               .then(response => response.json())
               .then(response => {
                 console.log(response)
-                let movie = response.results[Math.floor(Math.random() * response.results.length) + 1]
-                setMovieState(movie.title, movie.backdropURLs['300'], movie.cast, movie.imdbRating, movie.runtime, movie.overview, movie.episodeRuntimes, movie.seasons, movie.episodes)
+                let movie = response.results[Math.floor(Math.random() * (response.results.length-1)) + 1]
+                setMovieState(movie.title, movie.posterURLs['185'], movie.posterURLs['342'], movie.posterURLs['500'], movie.cast, movie.imdbRating, movie.runtime, movie.overview, movie.episodeRuntimes, movie.seasons, movie.episodes)
                 setDisplayMovie(true)
                 setIsLoading(false)
               }))
@@ -87,8 +91,8 @@ export default function App() {
               .then(response => response.json())
               .then(response => {
                 console.log(response)
-                let movie = response.results[Math.floor(Math.random() * response.results.length) + 1]
-                setMovieState(movie.title, movie.backdropURLs['300'], movie.cast, movie.imdbRating, movie.runtime, movie.overview, movie.episodeRuntimes, movie.seasons, movie.episodes)
+                let movie = response.results[Math.floor(Math.random() * (response.results.length-1)) + 1]
+                setMovieState(movie.title, movie.posterURLs['185'], movie.posterURLs['342'], movie.posterURLs['500'], movie.cast, movie.imdbRating, movie.runtime, movie.overview, movie.episodeRuntimes, movie.seasons, movie.episodes)
                 setDisplayMovie(true)
                 setIsLoading(false)
                 console.log(response.results)
@@ -112,9 +116,10 @@ export default function App() {
   } else if (displayMovie === true) {
     return (
       <section className="container">
-        <MovieCard title={movieTitle} imageURL={movieImageURL} cast={movieCast} imdbRating={movieImdbRating}
-                    runtime={movieRuntime} overview={movieOverview} setDisplayMovie={setDisplayMovie} 
-                    movieOrSeries={movieOrSeries} episodeRuntimes={episodeRuntimes} seasons={seasons} episodes={episodes}
+        <MovieCard title={movieTitle} mobileImageURL={movieMobileImageURL} mediumImageURL={movieMediumImageURL} largeImageURL={movieLargeImageURL}
+                                      cast={movieCast} imdbRating={movieImdbRating} runtime={movieRuntime} overview={movieOverview}
+                                      setDisplayMovie={setDisplayMovie} movieOrSeries={movieOrSeries} episodeRuntimes={episodeRuntimes}
+                                      seasons={seasons} episodes={episodes}
                     />
       </section>
     )
@@ -135,12 +140,12 @@ export default function App() {
               <StreamButton brand="amazon" setService={setService}/>
             </div>
           </section>
+        <section className="advanced-settings-section">
+          <AdvancedSettings setMovieOrSeries={setMovieOrSeries} setGenre={setGenre} />
+        </section>
           <section className="generate-button-section">
             <GenerateButton pickFlick={pickFlick} service={service} movieOrSeries={movieOrSeries} genre={genre} />
           </section>
-        </section>
-        <section className="advanced-settings-section">
-          <AdvancedSettings setMovieOrSeries={setMovieOrSeries} setGenre={setGenre} />
         </section>
       </div>
     )
