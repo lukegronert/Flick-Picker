@@ -102,17 +102,6 @@ export default function App() {
     }
   }
 
-  // Set active button on click
-  const streamButtons = document.querySelectorAll('.stream-button');
-  streamButtons.forEach(button => {
-    button.addEventListener('click', () => {
-      streamButtons.forEach(btn => {
-          btn.classList.remove('active')
-      })
-      button.classList.add('active');
-    })
-  })
-
   useEffect(() => {
     console.log('rerender')
   }, [isLoading])

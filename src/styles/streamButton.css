@@ -39,7 +39,7 @@
   }
 }
 
-.stream-button-netflix .active {
+.stream-button-netflix.active {
   background: white;
   color: var(--netflix);
   border: var(--netflix) 1px solid;
@@ -75,7 +75,7 @@
   }
 }
 
-.stream-button-disney .active {
+.stream-button-disney.active {
   background: white;
   color: var(--disney);
   border: var(--disney) 1px solid;
@@ -110,7 +110,7 @@
   }
 }
 
-.stream-button-hulu .active {
+.stream-button-hulu.active {
   background: white;
   color: var(--hulu);
   border: var(--hulu) 1px solid;
@@ -145,7 +145,7 @@
   }
 }
 
-.stream-button-amazon .active {
+.stream-button-amazon.active {
   background: white;
   color: var(--amazon);
   border: var(--amazon) 1px solid;
