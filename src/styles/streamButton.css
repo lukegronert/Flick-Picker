@@ -39,6 +39,12 @@
   }
 }
 
+.stream-button-netflix .active {
+  background: white;
+  color: var(--netflix);
+  border: var(--netflix) 1px solid;
+}
+
 .stream-button-disney {
   background: rgb(0, 110, 153);
   background: linear-gradient(
@@ -67,6 +73,12 @@
     color: var(--disney);
     border: var(--disney) 1px solid;
   }
+}
+
+.stream-button-disney .active {
+  background: white;
+  color: var(--disney);
+  border: var(--disney) 1px solid;
 }
 
 .stream-button-hulu {
@@ -98,6 +110,12 @@
   }
 }
 
+.stream-button-hulu .active {
+  background: white;
+  color: var(--hulu);
+  border: var(--hulu) 1px solid;
+}
+
 .stream-button-amazon {
   background: rgb(255, 201, 120);
   background: linear-gradient(
@@ -125,4 +143,10 @@
     color: var(--amazon);
     border: var(--amazon) 1px solid;
   }
+}
+
+.stream-button-amazon .active {
+  background: white;
+  color: var(--amazon);
+  border: var(--amazon) 1px solid;
 }

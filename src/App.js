@@ -30,6 +30,7 @@ export default function App() {
   const [seasons, setSeasons] = useState(null)
   const [episodes, setEpisodes] = useState(null)
 
+  // Sets state of variables to the random movie's/series' details
   const setMovieState = (title, mobileImageURL, mediumImageURL, largeImageURL, cast, imdbRating, runtime, overview, episodeRuntimes, seasons, episodes) => {
     setMovieTitle(title);
     setMovieMobileImageURL(mobileImageURL);
@@ -100,6 +101,17 @@ export default function App() {
               .catch(err => console.log(err))
     }
   }
+
+  // Set active button on click
+  const streamButtons = document.querySelectorAll('.stream-button');
+  streamButtons.forEach(button => {
+    button.addEventListener('click', () => {
+      streamButtons.forEach(btn => {
+          btn.classList.remove('active')
+      })
+      button.classList.add('active');
+    })
+  })
 
   useEffect(() => {
     console.log('rerender')
