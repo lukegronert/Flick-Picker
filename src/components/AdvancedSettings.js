@@ -1,5 +1,6 @@
 import React from 'react'
 import '../styles/advancedSettings.css';
+import downArrow from '../icons/chevron-down.svg';
 
 export default function AdvancedSettings({setMovieOrSeries, setGenre}) {
     const addAnimation = () => {
@@ -17,7 +18,7 @@ export default function AdvancedSettings({setMovieOrSeries, setGenre}) {
     <section className="advanced-settings-container">
         <div className="advanced-settings-header" onClick={() => addAnimation()}>
             <p>Advanced Settings</p>
-            <p>\/</p>
+            <p><img src={downArrow} /></p>
         </div>
         <section className="settings dropdown-animation">
             <div className="settings-option">

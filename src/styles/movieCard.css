@@ -1,3 +1,7 @@
+.movie-display-container {
+  margin: auto 0;
+}
+
 .image-details-section {
   display: flex;
   justify-content: space-between;

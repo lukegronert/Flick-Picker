@@ -17,12 +17,12 @@ export default function MovieCard({title, mobileImageURL, mediumImageURL, largeI
     if(movieOrSeries === 'movie') {
         return (
           <section className="movie-display-container">
-              <h1>{title}</h1>
               <section className="image-details-section">
                 <section className="image">
                     <img src={correctImage} alt={`Image for ${title}`}></img> 
                 </section>
                 <section className="details">
+                    <h1>{title}</h1>
                     <p>Cast: {cast.map((member, index) => {
                         {/* index ? ', ' : ' ' -> Skips first member because 0 is false
                             Puts a comma and space before every member
@@ -33,12 +33,19 @@ export default function MovieCard({title, mobileImageURL, mediumImageURL, largeI
                     })}</p>
                     <p>IMDb Rating: {imdbRating}</p>
                     <p>Runtime: {runtime} minutes</p>
-                    <p className="desktop-overview">{overview}</p>
+                    <div className="desktop-overview">
+                        <p>{overview}</p>
+                        <div className="button-div">
+                            <button className="back-button" onClick={() => setDisplayMovie(false)}>BACK</button>
+                        </div>
+                    </div>
                 </section>
               </section>
-              <p className="mobile-overview">{overview}</p>
-              <div className="button-div">
-                <button className="back-button" onClick={() => setDisplayMovie(false)}>BACK</button>
+              <div className="mobile-overview">
+                <p>{overview}</p>
+                <div className="button-div">
+                    <button className="back-button" onClick={() => setDisplayMovie(false)}>BACK</button>
+                </div>
               </div>
           </section>
         ) 

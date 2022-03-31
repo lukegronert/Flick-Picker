@@ -20,3 +20,10 @@
 .generate-button:hover {
   transform: scale(1.1);
 }
+
+@media only screen and (min-width: 500px) {
+  .generate-button {
+    height: 250px;
+    width: 250px;
+  }
+}

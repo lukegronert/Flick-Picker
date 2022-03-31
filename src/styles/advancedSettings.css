@@ -35,7 +35,7 @@
     opacity: 0;
   }
   to {
-    height: 100px;
+    height: 75px;
     opacity: 1;
   }
 }
@@ -48,7 +48,7 @@
 
 @keyframes raiseup {
   from {
-    height: 100px;
+    height: 75px;
     opacity: 1;
   }
   to {

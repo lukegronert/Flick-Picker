@@ -109,7 +109,7 @@ export default function App() {
     return(
       <section className="container">
         <div className="loader-div">
-          <Grid color="blue" height="100%" width="100%" className="loader-spinner"/>
+          <Grid color="rgba(234, 62, 62, 1)" height="100%" width="100%" className="loader-spinner"/>
         </div>
       </section>
     )
@@ -130,6 +130,7 @@ export default function App() {
           <h1 className="header">Flick Picker</h1>
         </header>
         <section className="buttons-section">
+          <h3>Choose a streaming service:</h3>
           <section className="stream-buttons-section">
             <div className="stream-buttons-column">
               <StreamButton brand="netflix" setService={setService}/>
@@ -140,9 +141,9 @@ export default function App() {
               <StreamButton brand="amazon" setService={setService}/>
             </div>
           </section>
-        <section className="advanced-settings-section">
-          <AdvancedSettings setMovieOrSeries={setMovieOrSeries} setGenre={setGenre} />
-        </section>
+          <section className="advanced-settings-section">
+            <AdvancedSettings setMovieOrSeries={setMovieOrSeries} setGenre={setGenre} />
+          </section>
           <section className="generate-button-section">
             <GenerateButton pickFlick={pickFlick} service={service} movieOrSeries={movieOrSeries} genre={genre} />
           </section>
