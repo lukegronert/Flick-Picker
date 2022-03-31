@@ -22,7 +22,7 @@ export default function MovieCard({title, mobileImageURL, mediumImageURL, largeI
                     <img src={correctImage} alt={`Image for ${title}`}></img> 
                 </section>
                 <section className="details">
-                    <h1>{title}</h1>
+                    <h2>{title}</h2>
                     <p>Cast: {cast.map((member, index) => {
                         {/* index ? ', ' : ' ' -> Skips first member because 0 is false
                             Puts a comma and space before every member

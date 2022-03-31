@@ -2,6 +2,10 @@
   margin: auto 0;
 }
 
+.movie-display-container h2 {
+  margin: 0;
+}
+
 .image-details-section {
   display: flex;
   justify-content: space-between;

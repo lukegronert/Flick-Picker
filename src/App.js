@@ -141,11 +141,11 @@ export default function App() {
               <StreamButton brand="amazon" setService={setService}/>
             </div>
           </section>
-          <section className="advanced-settings-section">
-            <AdvancedSettings setMovieOrSeries={setMovieOrSeries} setGenre={setGenre} />
-          </section>
           <section className="generate-button-section">
             <GenerateButton pickFlick={pickFlick} service={service} movieOrSeries={movieOrSeries} genre={genre} />
+          </section>
+          <section className="advanced-settings-section">
+            <AdvancedSettings setMovieOrSeries={setMovieOrSeries} setGenre={setGenre} />
           </section>
         </section>
       </div>
