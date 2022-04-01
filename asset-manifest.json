@@ -1,14 +1,14 @@
 {
   "files": {
     "main.css": "/Flick-Picker/static/css/main.71c8441f.css",
-    "main.js": "/Flick-Picker/static/js/main.71b9ad59.js",
+    "main.js": "/Flick-Picker/static/js/main.c76f7319.js",
     "index.html": "/Flick-Picker/index.html",
     "static/media/chevron-down.svg": "/Flick-Picker/static/media/chevron-down.9dd44c434d4e9116c0e3e2ac629c3aa1.svg",
     "main.71c8441f.css.map": "/Flick-Picker/static/css/main.71c8441f.css.map",
-    "main.71b9ad59.js.map": "/Flick-Picker/static/js/main.71b9ad59.js.map"
+    "main.c76f7319.js.map": "/Flick-Picker/static/js/main.c76f7319.js.map"
   },
   "entrypoints": [
     "static/css/main.71c8441f.css",
-    "static/js/main.71b9ad59.js"
+    "static/js/main.c76f7319.js"
   ]
 }
